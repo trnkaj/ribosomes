@@ -21,7 +21,7 @@ bTNT <- ulam(
     mu <- a + b*gemstd,
     a ~ dnorm(0,1),
     b ~ dnorm(0,1),
-    sd ~ dnorm(0,1)
+    sd ~ dexp(1)
   ), data=stddata, chains = 4, cores = 4
   
 )
