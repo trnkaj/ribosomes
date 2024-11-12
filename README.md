@@ -5,4 +5,4 @@ The folder "figure1c" contains data and R script for analyzing the number of TNT
 
 The folder "figure3f" contains data and R script for the analysis of flow cyotometry data.
 
-The folder "supplfigures1b" contains data and R script for the analysis of the dose-response curve to gemcitabine.
+The folder "supplfigs1b" contains data and R script for the analysis of the dose-response curve to gemcitabine.
