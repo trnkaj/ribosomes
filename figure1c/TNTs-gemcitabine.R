@@ -2,7 +2,7 @@ library(rethinking)
 library(tidyverse)
 
 library(readxl)
-TNTs_gem <- read_excel("./TNTs-gem.xlsx", 
+TNTs_gem <- read_excel("./figure1c/TNTs-gem.xlsx", 
                        skip = 1)
 
 #filter data
