@@ -2,7 +2,7 @@ library(rethinking)
 library(tidyverse)
 
 library(readxl)
-TNTs_gem <- read_excel("~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Laborka/Ribosomy/TNTs-gem.xlsx", 
+TNTs_gem <- read_excel("./TNTs-gem.xlsx", 
                        skip = 1)
 
 #filter data
