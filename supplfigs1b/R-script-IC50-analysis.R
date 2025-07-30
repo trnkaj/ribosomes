@@ -1,5 +1,9 @@
 library(tidyverse)
 
+read_csv2("./supplfigs1b/230323_CellGlo_gemcit.csv") -> X230323_CellGlo_gemcit
+read_csv2("./supplfigs1b/230331_CellGlo_gemcit.csv") -> X230331_CellGlo_gemcit
+read_csv2("./supplfigs1b/230409_CellGlo_gemcit.csv") -> X230409_CellGlo_gemcit
+
 #230323
 cellglo230323 <- X230323_CellGlo_gemcit %>% 
   pivot_longer(2:13,
@@ -96,6 +100,11 @@ model_gemcit <- drm(drm_gemcit$adj_lum ~ drm_gemcit$concentration,
 
 summary(model_gemcit)
 
+# Extract the IC50 (EC50) value and its standard error
+calculated_ic50 <- coef(model_gemcit)["EC50:(Intercept)"]
+ic50_display_text <- paste0("IC50 = ", round(calculated_ic50, 1), " μM")
+# calculated_ic50_se <- ic50_results[2] # If you want the standard error
+
 plot(model_gemcit, type = "all", 
      main = "Dose-response curve", 
      xlab = "gemcitabine (μM)", 
@@ -104,5 +113,5 @@ plot(model_gemcit, type = "all",
      cex.lab = 1.4,
      pch = 19,
      col = rgb(0, 0, 0, 0.5))
-text(10, 400, "IC50 = 1.6 μM", cex = 1.4)
+text(10, 400, ic50_display_text, cex = 1.4)
 
