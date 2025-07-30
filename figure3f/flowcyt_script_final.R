@@ -16,7 +16,7 @@ library(tidyverse)
 # 1.1) Set gates from control cells with only DAPI staining
 
 # load the data
-file_dapi_control <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp1_blue_time_24_BL24_.fcs", 
+file_dapi_control <- read.FCS("./DSHaloRPS9Blue-20241023-exp1_blue_time_24_BL24_.fcs", 
                                 transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_dapi_control <- exprs(file_dapi_control)
@@ -69,7 +69,7 @@ gate_pe <- max(gate_pe$`PE-A`)
 # 1.2) Set gates from control cells with only PE staining
 
 # load the data
-file_pe_control <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp1_TMR_time_24_TMR24_.fcs", 
+file_pe_control <- read.FCS("./DSHaloRPS9Blue-20241023-exp1_TMR_time_24_TMR24_.fcs", 
                               transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_pe_control <- exprs(file_pe_control)
@@ -126,7 +126,7 @@ gate_dapi <- max(gate_dapi$`DAPI-A`)
 # 2.1) DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_NT_time_24_E24_.fcs
 
 # load the data
-file_E1 <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_NT_time_24_E24_.fcs", 
+file_E1 <- read.FCS("./DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_NT_time_24_E24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_E1 <- exprs(file_E1)
@@ -229,7 +229,7 @@ df_E1 %>%
 # 2.2) DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_NT_time_24_E24_.fcs
 
 # load the data
-file_E2 <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_NT_time_24_E24_.fcs", 
+file_E2 <- read.FCS("./DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_NT_time_24_E24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_E2 <- exprs(file_E2)
@@ -330,7 +330,7 @@ df_E2 %>%
 # 2.3) DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_NT_time_24_E24_.fcs
 
 # load the data
-file_E3 <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_NT_time_24_E24_.fcs", 
+file_E3 <- read.FCS("./DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_NT_time_24_E24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_E3 <- exprs(file_E3)
@@ -434,7 +434,7 @@ df_E3 %>%
 # 2.4) DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_GEM_time_24_F24_.fcs
 
 # load the data
-file_F1 <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
+file_F1 <- read.FCS("./DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_F1 <- exprs(file_F1)
@@ -535,7 +535,7 @@ df_F1 %>%
 # 2.5) DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_GEM_time_24_F24_.fcs
 
 # load the data
-file_F2 <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
+file_F2 <- read.FCS("./DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_F2 <- exprs(file_F2)
@@ -637,7 +637,7 @@ df_F2 %>%
 # 2.6) DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_GEM_time_24_F24_.fcs
 
 # load the data
-file_F3 <- read.FCS("/Users/luciejosefalamacova/Downloads/cytometr/fcs 24h/DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
+file_F3 <- read.FCS("./DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_F3 <- exprs(file_F3)
