@@ -16,7 +16,7 @@ library(tidyverse)
 # 1.1) Set gates from control cells with only DAPI staining
 
 # load the data
-file_dapi_control <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp1_blue_time_24_BL24_.fcs", 
+file_dapi_control <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp1_blue_time_24_BL24_.fcs", 
                                 transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_dapi_control <- exprs(file_dapi_control)
@@ -69,7 +69,7 @@ gate_pe <- max(gate_pe$`PE-A`)
 # 1.2) Set gates from control cells with only PE staining
 
 # load the data
-file_pe_control <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp1_TMR_time_24_TMR24_.fcs", 
+file_pe_control <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp1_TMR_time_24_TMR24_.fcs", 
                               transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_pe_control <- exprs(file_pe_control)
@@ -126,7 +126,7 @@ gate_dapi <- max(gate_dapi$`DAPI-A`)
 # 2.1) DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_NT_time_24_E24_.fcs
 
 # load the data
-file_E1 <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_NT_time_24_E24_.fcs", 
+file_E1 <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_NT_time_24_E24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_E1 <- exprs(file_E1)
@@ -229,7 +229,7 @@ df_E1 %>%
 # 2.2) DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_NT_time_24_E24_.fcs
 
 # load the data
-file_E2 <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_NT_time_24_E24_.fcs", 
+file_E2 <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_NT_time_24_E24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_E2 <- exprs(file_E2)
@@ -330,7 +330,7 @@ df_E2 %>%
 # 2.3) DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_NT_time_24_E24_.fcs
 
 # load the data
-file_E3 <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_NT_time_24_E24_.fcs", 
+file_E3 <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_NT_time_24_E24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_E3 <- exprs(file_E3)
@@ -434,7 +434,7 @@ df_E3 %>%
 # 2.4) DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_GEM_time_24_F24_.fcs
 
 # load the data
-file_F1 <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
+file_F1 <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp1_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_F1 <- exprs(file_F1)
@@ -535,7 +535,7 @@ df_F1 %>%
 # 2.5) DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_GEM_time_24_F24_.fcs
 
 # load the data
-file_F2 <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
+file_F2 <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp2_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_F2 <- exprs(file_F2)
@@ -637,7 +637,7 @@ df_F2 %>%
 # 2.6) DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_GEM_time_24_F24_.fcs
 
 # load the data
-file_F3 <- read.FCS("./figure3f/DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
+file_F3 <- read.FCS("~/Downloads/ribosomes-main/figure3f/DSHaloRPS9Blue-20241023-exp3_HaloRPS9_blue_GEM_time_24_F24_.fcs", 
                     transformation = FALSE, truncate_max_range = FALSE)
 # extract numbers from fcs file
 exprs_F3 <- exprs(file_F3)
@@ -675,6 +675,7 @@ for (gate in singlets_maxima_analysis) {
   analysis_F3 <- rbind(analysis_F3, data.frame(singlets_gate = gate, cells_gated = num_gated, cells_double = num_double))
 }
 
+chosen_gate <- 140000
 # plot the results of sensitivity analysis
 analysis_F3 %>% 
   ggplot(aes(x = singlets_gate, y = cells_double/cells_gated))+
@@ -698,7 +699,6 @@ analysis_F3 %>%
        y = "double positive cells")+
   scale_y_continuous(limits = c(0, 120))
 
-chosen_gate <- 140000
 
 df_F3 <- df_F3 %>% 
   mutate(filter1 = if_else(`FSC-W` > chosen_gate, "out", "in"))
@@ -939,3 +939,98 @@ doublestained %>%
     shape = 95,
     fill = "black")
 
+#STATISTICAL ANALYSIS OF MEANS
+#create data frame of numbers of doublestained cells for bayesian model (modified from "result" on line 911)
+doublestained_b <- data.frame(num_of_cells = result, 
+                            exp = c("E1", "E2", "E3", "F1", "F2", "F3"), 
+                            group = rep(c(1, 2), each = 3),
+                            gemcitabine = rep(c(0, 0.5), each = 3))
+
+#check the variance of data to select a suitable prior for sigma
+print(sd(doublestained_b$num_of_cells[doublestained_b$group == 1]))
+print(sd(doublestained_b$num_of_cells[doublestained_b$group == 2]))
+
+#bayesian model for means comparison
+comp_means <- ulam(
+  alist(
+    num_of_cells ~ dnorm(mu, sigma),
+    mu <- a[group],
+    a[group] ~ dnorm(50, 100),
+    sigma ~ dhalfnorm(0,10)
+  ),
+  data = doublestained_b,
+  chains = 4,
+  cores = 4,
+  iter = 4000
+)
+
+precis(comp_means, depth=2)
+
+#extract posterior samples
+post_means <- extract.samples(comp_means)
+#plot the means with credible intervals
+dens(post_means$a[,1], 
+     xlab = "number of double positive cells", 
+     main = "Posterior distributions of the means", adj=1.5, xlim=c(0,80))
+dens(post_means$a[,2], add = TRUE, adj=1.5)
+
+
+#calculate posterior difference between means
+diff_means <- post_means$a[,2] - post_means$a[,1]
+#calculate 95% credible interval
+ci_diff <- HPDI(diff_means, prob = 0.95)
+print(paste("The estimated difference in means is", round(mean(diff_means),2),"(95% CrI:", round(ci_diff[1],2),",",round(ci_diff[2],2),")"))
+#plot posterior distribution of the difference with shaded credible interval
+dens(diff_means, 
+     xlab = "difference in means (number of double positive cells)", 
+     main = "Posterior distribution of the difference in means", adj=1.5)
+shade(density(diff_means, adj=1.5),ci_diff)
+abline(v = 0, lty = 2)
+
+# CHECK MODEL PREDICTIVE PERFORMANCE WITH DIFFERENT PRIORS FOR SIGMA
+# --- 1. Define the models with different sigma priors ---
+
+# Model A: Tight Prior
+# Assumes noise is small (~1)
+m_tight <- ulam(
+  alist(
+    num_of_cells ~ dnorm(mu, sigma),
+    mu <- a[group],
+    a[group] ~ dnorm(50, 100),
+    sigma ~ dhalfnorm(0,1) 
+  ),
+  data = doublestained_b, chains = 4, cores = 4, iter = 4000,
+  log_lik = TRUE
+)
+
+# Model B: Medium Prior
+# Assumes noise is moderate (~7-10).
+m_medium <- ulam(
+  alist(
+    num_of_cells ~ dnorm(mu, sigma),
+    mu <- a[group],
+    a[group] ~ dnorm(50, 100),
+    sigma ~ dhalfnorm(0, 10)
+  ),
+  data = doublestained_b, chains = 4, cores = 4, iter = 4000,
+  log_lik = TRUE
+)
+
+# Model C: Loose Prior
+# Assumes noise could be huge (~20+)
+m_loose <- ulam(
+  alist(
+    num_of_cells ~ dnorm(mu, sigma),
+    mu <- a[group],
+    a[group] ~ dnorm(50, 100),
+    sigma ~ dhalfnorm(0, 20)
+  ),
+  data = doublestained_b, chains = 4, cores = 4, iter = 4000,
+  log_lik = TRUE
+)
+
+# --- 2. Compare them ---
+# You can use func=WAIC (default) or func=LOO (better for outliers)
+comparison <- compare(m_tight, m_medium, m_loose, func = WAIC)
+
+print(comparison)
