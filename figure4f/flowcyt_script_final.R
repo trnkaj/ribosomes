@@ -10,6 +10,7 @@ BiocManager::install("ggcyto")
 library(flowCore)
 library(ggcyto)
 library(tidyverse)
+library(rethinking)
 
 # 1) Set gates from controls
 
@@ -964,6 +965,7 @@ comp_means <- ulam(
 )
 
 precis(comp_means, depth=2)
+rethinking::dashboard(comp_means)
 
 #extract posterior samples
 post_means <- extract.samples(comp_means)
