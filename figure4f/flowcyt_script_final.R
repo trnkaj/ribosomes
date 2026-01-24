@@ -165,6 +165,7 @@ for (gate in singlets_maxima_analysis) {
 }
 
 # plot the results of sensitivity analysis
+chosen_gate <- 140000
 analysis_E1 %>% 
   ggplot(aes(x = singlets_gate, y = cells_double/cells_gated))+
   geom_point(size = 0.2)+
@@ -187,8 +188,6 @@ analysis_E1 %>%
        x = "singlets gate",
        y = "double positive cells")+
   scale_y_continuous(limits = c(0, 80))
-
-chosen_gate <- 140000
 
 df_E1 <- df_E1 %>% 
   mutate(filter1 = if_else(`FSC-W` > chosen_gate, "out", "in"))
